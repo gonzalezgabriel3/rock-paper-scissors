@@ -38,8 +38,7 @@ function getHumanChoice(){
 //Those two variables initialize to 0
 
 
-let humanScore = 0;
-let computerScore = 0;
+
 
 
 //create function called playRound with parameters for humanChoice and computerChoice
@@ -47,7 +46,22 @@ let computerScore = 0;
 // playRound should output a string such as "You lose! Paper beats Rock"
 //Increment score of the winner
 
-function playRound(humanChoice, computerChoice){
+    
+
+
+
+
+
+
+
+//Create function called playGame that calls playRound to play 5 rounds
+
+function playGame(){
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice){
     console.log("Computer chose " + computerChoice);
     switch (humanChoice.toLowerCase()) {
         case "rock":
@@ -87,16 +101,25 @@ function playRound(humanChoice, computerChoice){
             }
             break;
     }
-
-}
-
-playRound(getHumanChoice(), getComputerChoice());
-console.log("Human Score: " + humanScore);
-console.log("Computer Score: " + computerScore);
-
-
-//Create function called playGame that calls playRound to play 5 rounds
-
-function playGame(){
     
+    console.log("Human Score: " + humanScore);
+    console.log("Computer Score: " + computerScore);
+
 }
+    
+
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+
+
+    if (humanScore > computerScore){
+        console.log("HUMAN WON!!!")
+    } else if (computerScore > humanScore){
+        console.log("COMPUTER WON!!!")
+    } else console.log("ITS A TIE!!!");
+}
+
+playGame();
